@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  locallead-pro:
+    build: .
+    container_name: ossiqn_locallead_pro
+    environment:
+      - TARGET_QUERY=plumbers in London
+      - MAX_RESULTS=50
+      - THREAD_COUNT=5
+      - USE_PROXY=false
+      - PROXY_URL=http://user:pass@ip:port
+      - GMAPS_API_KEY=YOUR_GOOGLE_MAPS_API_KEY
+      - OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_USER=your_email@gmail.com
+      - SMTP_PASS=your_app_password
+      - TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN
+      - TELEGRAM_CHAT_ID=YOUR_CHAT_ID
+    volumes:
+      - ./data:/app/data
+    restart: on-failure
